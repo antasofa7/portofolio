@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import wave from "../assets/wave.png";
 import starCyan from "../assets/star-cyan.png";
@@ -16,7 +16,9 @@ const Work = () => {
     >
       <div className="md:w-4/5 mx-6 md:mx-auto py-16">
         <div className="flex items-center mb-16">
-          <h2 className="text-black text-5xl md:text-8xl font-semibold md:mr-16">Work</h2>
+          <h2 className="text-black text-5xl md:text-8xl font-semibold md:mr-16">
+            Work
+          </h2>
           <div className="w-full">
             <Image src={wave} width={400} height={60} alt="wave" />
           </div>
@@ -36,8 +38,9 @@ const Work = () => {
                 <div className="border-4 border-black rounded-md shadow-neubrutal hover:shadow-none aspect-square relative">
                   <Image
                     src={tambalBan}
-                    fill
                     alt="tambal ban"
+                    // layout="fill"
+                    objectPosition="center"
                     objectFit="cover"
                   />
                 </div>
@@ -54,7 +57,13 @@ const Work = () => {
                 target="_blank"
               >
                 <div className="border-4 border-black rounded-md bg-blue-400 shadow-neubrutal hover:shadow-none aspect-square relative">
-                  <Image src={phbd} fill alt="phbd" objectFit="cover" />
+                  <Image
+                    src={phbd}
+                    alt="phbd"
+                    // layout="fill"
+                    objectPosition="center"
+                    objectFit="cover"
+                  />
                 </div>
               </Link>
               <h5 className="text-lg md:text-3xl text-black font-bold mt-4 md:mt-9">
@@ -69,7 +78,13 @@ const Work = () => {
                 target="_blank"
               >
                 <div className="border-4 border-black rounded-md shadow-neubrutal hover:shadow-none aspect-square relative">
-                  <Image src={pwri} fill alt="pwri" objectFit="cover" />
+                  <Image
+                    src={pwri}
+                    alt="pwri"
+                    // layout="fill"
+                    objectPosition="center"
+                    objectFit="cover"
+                  />
                 </div>
               </Link>
               <h5 className="text-lg md:text-3xl text-black font-bold mt-4 md:mt-9">

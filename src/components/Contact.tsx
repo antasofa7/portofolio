@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import bubleChat from "../assets/bubble-chat.png";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/navigation";
 
 const Contact = () => {
@@ -13,7 +13,7 @@ const Contact = () => {
       className="w-full bg-turquoise-sea border-4 border-t-0 border-black"
       id="contact"
     >
-      <div className="md:w-4/5 mx-6 md:mx-auto py-16 relative -z-0">
+      <div className="md:w-4/5 mx-4 md:mx-auto py-16 relative -z-0">
         <div className="absolute md:top-24 right-0 md:right-36 -z-10 max-sm:w-12">
           <Image src={bubleChat} width={100} height={80} alt="bubble chat" />
         </div>

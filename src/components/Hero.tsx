@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Image from "next/image";
 import searchIcon from "../assets/search-icon.png";
@@ -13,25 +15,34 @@ import triangleGreen from "../assets/triangle-green.png";
 import Link from "next/link";
 
 const Hero = () => {
+  const [activeMenu, setActiveMenu] = useState(false);
+
   return (
     <div className="relative w-full h-screen bg-reindeer-moss border-4 border-black">
       <div className="max-sm:flex justify-center w-full p-4 hidden">
-        <Link
-          href="#"
-          draggable="false"
-          aria-labelledby="title"
-          className="px-8 py-3 group bg-coin-slot shadow-neubrutal rounded-md text-white font-semibold hover:shadow-none"
+        <button
+          onClick={() => setActiveMenu(true)}
+          className="px-8 py-3 w-32 bg-coin-slot shadow-neubrutal rounded-md text-white font-semibold hover:shadow-none"
         >
-          <span id="title" className="tracking-wider">
             menu
-          </span>
-          <div
-            className="flex justify-center absolute z-20 inset-0 py-6 px-12 bg-white motion-safe:transition-[clip-path] motion-safe:duration-500 ease-out [clip-path: polygon(0%_0%, 100%_0%, 100%_100%, 0%_100%)] group-hover:[clip-path: polygon(0%_0%, 100%_0%, 100%_0%, 0%_0%)]"
-            aria-hidden="true"
+        </button>
+        <div
+          className={`flex flex-col justify-between items-center absolute z-20 inset-0 py-4 px-12 bg-white motion-safe:transition-[clip-path] motion-safe:duration-200 ease-in-out ${
+            activeMenu
+            ? "[clip-path:circle(170%_at_100%_100%)]"
+            : "[clip-path:circle(0%_at_50%_5%)]"
+          }`}
+          aria-hidden="true"
+        >
+          <button
+            onClick={() => setActiveMenu(false)}
+            className="px-8 py-3 w-32 bg-coin-slot shadow-neubrutal rounded-md text-white font-semibold hover:shadow-none"
           >
-            <Navbar />
-          </div>
-        </Link>
+            close
+          </button>
+          <Navbar />
+          <div></div>
+        </div>
       </div>
       <div className="max-sm:hidden">
         <Navbar />
@@ -44,7 +55,7 @@ const Hero = () => {
             sofa
           </h1>
           <div className="flex items-center w-full md:w-3/4 mt-12 bg-white border-4 border-black rounded-md shadow-neubrutal">
-            <div className="bg-yellow p-3 md:px-6 py-3 border-r-4 border-black">
+            <div className="bg-yellow w-14 md:w-24 p-3 md:px-6 py-3 border-r-4 border-black">
               <Image src={searchIcon} width={40} height={40} alt="Search" />
             </div>
             <h2 className="text-lg md:text-3xl text-black font-medium mx-3 md:mx-6 w-60 md:w-96 animate-typing whitespace-nowrap overflow-hidden border-r-2 border-black">
